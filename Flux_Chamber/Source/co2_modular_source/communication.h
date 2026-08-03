@@ -1,0 +1,13 @@
+#pragma once
+#include <Arduino.h>
+#include <PubSubClient.h>
+
+extern PubSubClient clientVPS;
+extern PubSubClient clientLocal;
+extern PubSubClient clientCloud;
+
+void setupCommunication();
+void maintainCommunication();
+void checkAndConnectCloudServices(); // PENAMBAHAN FUNGSI KOREKSI DI SINI
+void publishJSONToVPSAndLocal(const char* topic, const char* nama_modul, String data_kontrol, String data_status, String data_berita);
+void publishGatewayCloud(String module_name, String data_ctrl, String status_msg, String news);
